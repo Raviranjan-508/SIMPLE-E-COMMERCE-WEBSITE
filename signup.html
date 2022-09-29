@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-Up</title>
+    <link rel="stylesheet" href="./css file/sign-up.css">
+</head>
+<body>
+        <form  id="myForm" style="border:1px solid #ccc">
+            <div class="container">
+              <h1>Sign Up</h1>
+              <p>Please fill in this form to create an account.</p>
+              <hr>
+              <label for="mobile"><b>Mobile</b></label>
+              <input type="text" placeholder="Enter mobile" name="mobile" id="mobile"required>
+          
+              <label for="email"><b>Email</b></label>
+              <input type="text" placeholder="Enter Email" name="email" id="email" required>
+          
+              <label for="psw"><b>Password</b></label>
+              <input type="password" placeholder="Enter Password" id="firstpassword" name="psw" required>
+          
+              <label for="psw-repeat"><b>Repeat Password</b></label>
+              <input type="password" placeholder="Repeat Password" id="comfirmpassword" name="psw-repeat" required>
+          
+              <label>
+                <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+              </label>
+          
+              <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+          
+              <div class="clearfix">
+                <button type="button" class="cancelbtn">Cancel</button>
+                <button type="submit" class="signupbtn">Sign Up</button>
+              </div>
+            </div>
+          </form>
+</body>
+</html>
+
+<script>
+    document.querySelector("#myForm").addEventListener("submit",myFormSubmit);
+
+    var signupArr = JSON.parse(localStorage.getItem("signUpDetails")) || [];
+    function myFormSubmit(event)
+    {
+        event.preventDefault();
+        var Mobile = document.querySelector("#mobile").value;
+        var Email = document.querySelector("#email").value;
+        var firstPassword = document.querySelector("#firstpassword").value;
+        var comfirmPassword = document.querySelector("#comfirmpassword").value;
+        var signupObj = {
+            mobile : Mobile,
+            email : Email,
+            password : firstPassword,
+            comfirmpassword : comfirmPassword,
+        };
+        signupArr.push(signupObj);
+        // console.log(signupArr);
+        // console.log(signupObj.comfirmpassword);
+        localStorage.setItem("signUpDetails", JSON.stringify(signupArr));
+        // console.log(signupArr.mobile);
+        window.location.href = "login.html";
+    }
+</script>

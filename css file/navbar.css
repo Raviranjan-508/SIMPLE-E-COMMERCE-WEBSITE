@@ -1,0 +1,31 @@
+#navMain{
+    width: 100%;
+    /* border: 2px solid yellow; */
+    display: grid;
+    grid-template-columns: 1.5fr 2fr 0.5fr;
+    grid-template-rows: 40px;
+    margin: auto;
+}
+#firstNav{
+    font-size: 30px;
+    font-style: bold;
+}
+#middleNav{
+    display: flex;
+    justify-content: space-around;
+    font-size: 20px;
+}
+#bottomNav{
+    text-align: right;
+    display: flex;
+    justify-content: space-around;
+    font-size: 20px;
+}
+#search{
+    border-radius: 50px;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+
